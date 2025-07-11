@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aff.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/113671771b.js" crossorigin="anonymous"></script>
+    <title>SHORT URL GENRATOR</title>
+</head>
+<body>
+    <div class="home-bg-container ">
+        <h1 class="home-page-heading"> URL GENRATOR</h1>
+
+        <div>
+            <input type="text" placeholder="Paste the url which you want to Short"  class="form-control" id="inputElement" required/>
+            <button class=" btn btn-primary m-4" onclick="sendUrl()">Genrate URL...</button>
+        </div>
+        <p class="" id="shortUrlPara"></p>
+        <a class="" id="ShortUrl" href="" target="_blank"></a>
+
+
+        <p class="" id="longUrlPara"></p>
+        <a class="" id="longUrl" href="" target="_blank"></a>
+
+
+        <p class="alert-msg" id="expieryUrlPara"></p>
+        <a class="" id="ExpieryDate" href="" target="_blank"></a>
+    </div>
+
+
+    <script>
+        let userInputElement = document.getElementById('inputElement');
+
+        let genratedUrlPara = document.getElementById('ShortUrl');
+        let shortUrlPAraELement = document.getElementById('shortUrlPara');
+
+        let userUrlPara = document.getElementById('longUrlPara');
+        let longUrlPAraELement = document.getElementById('longUrl');
+
+        let expieryDateElement = document.getElementById('expieryUrlPara');
+
+
+        function sendUrl(){
+            userEnteredUrl = userInputElement.value;
+            console.log(userEnteredUrl);
+            const shortUrls = [
+            "https://bit.ly/3KfXq1A",
+            "https://tinyurl.com/2p87ukkn",
+            "https://is.gd/Q4hRpl",
+            "https://rb.gy/oez9cn",
+            "https://shrtco.de/FKw32n",
+            "https://t.co/aBcD123",
+            "https://cli.re/v7qLpG",
+            "https://v.gd/nmPd5c",
+            "https://shorturl.at/gpD37",
+            "https://cutt.ly/Yx1Nc4U"
+            ];
+
+            if (userInputElement.value === ''){
+                alert("Please Enter the Valid Link");
+            }
+            else{
+                let genrateRandomShortUrl = Math.ceil(Math.random() * 9);
+            genratedUrlPara.textContent = `${shortUrls[genrateRandomShortUrl]} `;
+            console.log(shortUrls[genrateRandomShortUrl])
+            shortUrlPAraELement.textContent = "Your Short Url is Been Genrated Successfully:";
+
+            userUrlPara .textContent = "Your Actuall URL :";
+            longUrlPAraELement.textContent = userInputElement.value;
+
+
+            expieryDateElement.textContent = `Your Url Will Get Expiry with in ${genrateRandomShortUrl} Min...!`;
+            }
+
+            
+        }
+
+        
+        
+    </script>
+</body>
+</html>
